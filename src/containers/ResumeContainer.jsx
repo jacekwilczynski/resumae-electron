@@ -1,8 +1,8 @@
 import { ipcRenderer } from 'electron';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Resume from '../../components/Resume';
 
-class MainWindow extends Component {
+class ResumeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +18,13 @@ class MainWindow extends Component {
   }
 
   render() {
+    const { Resume } = this.props;
     return <Resume {...this.state.data} />;
   }
 }
 
-export default MainWindow;
+ResumeContainer.propTypes = {
+  Resume: PropTypes.func.isRequired
+};
+
+export default ResumeContainer;

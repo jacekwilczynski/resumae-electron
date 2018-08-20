@@ -1,11 +1,18 @@
-const create = ({ onFileOpenClick, runningOnMac }) => {
+import loadResume from './loadResume';
+import showOpenResumeDialog from './showOpenResumeDialog';
+
+const create = ({ win, runningOnMac }) => {
   const mainMenuTemplate = [
     {
       label: 'File',
       submenu: [
         {
           label: 'Open',
-          click: onFileOpenClick
+          click: () => {
+            showOpenResumeDialog(win).then(filepath => {
+              if (filepath) loadResume(win, filepath);
+            });
+          }
         }
       ]
     }

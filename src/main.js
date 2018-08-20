@@ -7,12 +7,19 @@ import createMainWindow from './windows/mainWindow';
 
 let mainWindow;
 
+function setupMainWindow() {
+  mainWindow = createMainWindow();
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+}
+
 const isDevMode = process.execPath.match(/[\\/]electron/);
 
 if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 app.on('ready', () => {
-  mainWindow = createMainWindow();
+  setupMainWindow();
   if (isDevMode) installExtension(REACT_DEVELOPER_TOOLS);
 });
 
@@ -24,6 +31,6 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (mainWindow === null) {
-    mainWindow = createMainWindow();
+    setupMainWindow();
   }
 });
