@@ -1,8 +1,8 @@
 import { ipcRenderer } from 'electron';
 import React, { Component } from 'react';
-import Resume from './Resume';
+import Resume from '../../Resume';
 
-class App extends Component {
+class MainWindow extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,4 +22,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MainWindow;

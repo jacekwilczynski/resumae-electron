@@ -1,12 +1,12 @@
 import { dialog } from 'electron';
-import * as fs from 'fs';
 import * as path from 'path';
 import createWindow from '../main/createWindow';
+import loadResume from './mainWindow/loadResume';
 import menuTemplate from './mainWindow/menuTemplate';
 
-const createMainWindow = ({ loadResume }) => {
+const createMainWindow = () => {
   const win = createWindow({
-    src: path.join(__dirname, 'mainWindow', 'page.html'),
+    src: path.join(__dirname, 'mainWindow', 'mainWindow.html'),
     menuTemplate: menuTemplate({
       onFileOpenClick: () => {
         dialog.showOpenDialog(
@@ -15,7 +15,7 @@ const createMainWindow = ({ loadResume }) => {
             properties: ['openFile']
           },
           filePaths => {
-            loadResume(fs.readFileSync(filePaths[0], 'utf-8'));
+            loadResume(win, filePaths[0]);
           }
         );
       },
