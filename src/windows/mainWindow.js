@@ -4,7 +4,7 @@ import menuTemplate from './mainWindow/menuTemplate';
 
 const createMainWindow = () =>
   createWindow({
-    src: path.join(__dirname, 'main', 'page.html'),
+    src: path.join(__dirname, 'mainWindow', 'page.html'),
     menuTemplate: menuTemplate({
       onFileOpenClick: () => {},
       runningOnMac: process.platform === 'darwin'
