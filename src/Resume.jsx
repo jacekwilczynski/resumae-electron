@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from './components/Header';
 
 const Resume = ({ name, contactInfo, sections }) => (
-  <div>
+  <Fragment>
     <Header caption={name} list={contactInfo} />
     {sections.toString()}
-  </div>
+  </Fragment>
 );
 
 Resume.propTypes = {

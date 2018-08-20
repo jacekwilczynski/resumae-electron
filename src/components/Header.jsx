@@ -7,7 +7,7 @@ const Header = ({ caption, list }) => (
     <div className="header__caption">{caption}</div>
     <div className="header__list">
       {list.map(item => (
-        <Item data={item} />
+        <Item key={item.id} data={item} />
       ))}
     </div>
   </div>
