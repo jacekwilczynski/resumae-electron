@@ -1,6 +1,6 @@
 import * as path from 'path';
 import createWindow from '../main/createWindow';
-import menuTemplate from './main/menuTemplate';
+import menuTemplate from './mainWindow/menuTemplate';
 
 const createMainWindow = () =>
   createWindow({

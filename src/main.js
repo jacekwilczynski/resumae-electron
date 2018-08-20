@@ -3,7 +3,7 @@ import { enableLiveReload } from 'electron-compile';
 import installExtension, {
   REACT_DEVELOPER_TOOLS
 } from 'electron-devtools-installer';
-import createMainWindow from './windows/main';
+import createMainWindow from './windows/mainWindow';
 
 let mainWindow;
 
