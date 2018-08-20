@@ -1,28 +1,27 @@
-import { dialog } from 'electron';
+import { BrowserWindow, Menu } from 'electron';
 import * as path from 'path';
-import createWindow from '../main/createWindow';
-import loadResume from './mainWindow/loadResume';
+import * as url from 'url';
 import menuTemplate from './mainWindow/menuTemplate';
+import showOpenFileDialog from './mainWindow/showOpenFileDialog';
 
-const createMainWindow = () => {
-  const win = createWindow({
-    src: path.join(__dirname, 'mainWindow', 'mainWindow.html'),
-    menuTemplate: menuTemplate({
+const mainWindow = () => {
+  const win = new BrowserWindow({});
+  win.loadURL(
+    url.format({
+      protocol: 'file:',
+      slashes: true,
+      pathname: path.join(__dirname, 'mainWindow', 'mainWindow.html')
+    })
+  );
+  const menu = Menu.buildFromTemplate(
+    menuTemplate({
       onFileOpenClick: () => {
-        dialog.showOpenDialog(
-          win,
-          {
-            properties: ['openFile']
-          },
-          filePaths => {
-            loadResume(win, filePaths[0]);
-          }
-        );
+        showOpenFileDialog(win);
       },
       runningOnMac: process.platform === 'darwin'
     })
-  });
-  return win;
+  );
+  Menu.setApplicationMenu(menu);
 };
 
-export default createMainWindow;
+export default mainWindow;

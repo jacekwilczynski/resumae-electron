@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
-import Header from './components/Header';
+import Header from './resume/Header';
 
 const Resume = ({ name, contactInfo, sections }) => (
   <Fragment>

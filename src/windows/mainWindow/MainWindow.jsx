@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron';
 import React, { Component } from 'react';
-import Resume from '../../Resume';
+import Resume from '../../components/Resume';
 
 class MainWindow extends Component {
   constructor(props) {
