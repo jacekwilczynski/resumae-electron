@@ -7,7 +7,7 @@ const render = () => {
   const Resume = require('../../components/Resume').default;
   ReactDOM.render(
     <AppContainer>
-      <ResumeContainer Resume={Resume} />
+      <ResumeContainer Display={Resume} />
     </AppContainer>,
     document.getElementById('App')
   );

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 class ResumeContainer extends Component {
   static propTypes = {
-    Resume: PropTypes.func.isRequired
+    Display: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -22,8 +22,8 @@ class ResumeContainer extends Component {
   }
 
   render() {
-    const { Resume } = this.props;
-    return <Resume {...this.state.data} />;
+    const { Display } = this.props;
+    return <Display {...this.state.data} />;
   }
 }
 
