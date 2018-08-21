@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class ResumeContainer extends Component {
+  static propTypes = {
+    Resume: PropTypes.func.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +26,5 @@ class ResumeContainer extends Component {
     return <Resume {...this.state.data} />;
   }
 }
-
-ResumeContainer.propTypes = {
-  Resume: PropTypes.func.isRequired
-};
 
 export default ResumeContainer;
