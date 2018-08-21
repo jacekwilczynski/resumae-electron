@@ -3,6 +3,7 @@ import loadResume from './loadResume';
 import showOpenResumeDialog from './showOpenResumeDialog';
 
 const create = ({ runningOnMac }) => {
+  const ctrl = runningOnMac ? 'Command' : 'Ctrl';
   const mainMenuTemplate = [
     {
       label: 'File',
@@ -28,7 +29,7 @@ const create = ({ runningOnMac }) => {
       submenu: [
         {
           label: 'DevTools',
-          accelerator: runningOnMac ? 'Command+Shift+I' : 'Ctrl+Shift+I',
+          accelerator: `${ctrl}+Shift+I`,
           click: (item, focusedWindow) => {
             focusedWindow.toggleDevTools();
           }
