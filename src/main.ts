@@ -5,7 +5,7 @@ import installExtension, {
 } from 'electron-devtools-installer';
 import createMainWindow from './windows/mainWindow';
 
-let mainWindow;
+let mainWindow: Electron.BrowserWindow | null = null;
 
 function setupMainWindow() {
   mainWindow = createMainWindow();

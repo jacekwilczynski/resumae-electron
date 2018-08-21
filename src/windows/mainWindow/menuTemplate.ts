@@ -1,7 +1,12 @@
 import loadResume from './loadResume';
 import showOpenResumeDialog from './showOpenResumeDialog';
 
-const create = ({ win, runningOnMac }) => {
+interface createMenuTemplateOptions {
+  win: Electron.BrowserWindow;
+  runningOnMac: boolean;
+}
+
+const create = ({ win, runningOnMac }: createMenuTemplateOptions) => {
   const mainMenuTemplate = [
     {
       label: 'File',
@@ -19,7 +24,7 @@ const create = ({ win, runningOnMac }) => {
   ];
 
   if (runningOnMac) {
-    mainMenuTemplate.unshift({});
+    mainMenuTemplate.unshift({ label: '', submenu: [] });
   }
 
   return mainMenuTemplate;

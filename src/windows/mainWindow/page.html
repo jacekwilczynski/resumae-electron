@@ -7,23 +7,6 @@
 <body style="overflow: hidden; background-color: rgba(0,0,0,0); margin: 0">
   <div id="App"></div>
 </body>
-<script type="text/jsx">
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import { AppContainer } from 'react-hot-loader';
-
-  const render = () => {
-    const ResumeContainer = require('../../containers/ResumeContainer').default;
-    const Resume = require('../../components/Resume').default;
-    ReactDOM.render(
-      <AppContainer><ResumeContainer Resume={Resume}/></AppContainer>,
-      document.getElementById('App')
-    );
-  };
-
-  render();
-  if (module.hot) {
-    module.hot.accept(render);
-  }
-</script>
+<script>window.exports = module.exports;</script>
+<script type="text/tsx">import './render.tsx';</script>
 </html>
