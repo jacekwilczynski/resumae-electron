@@ -10,6 +10,7 @@ const create = ({ runningOnMac }) => {
       submenu: [
         {
           label: 'Open',
+          accelerator: `${ctrl}+O`,
           click: (_item, focusedWindow) => {
             showOpenResumeDialog(focusedWindow).then(filepath => {
               if (filepath) loadResume(focusedWindow, filepath);
