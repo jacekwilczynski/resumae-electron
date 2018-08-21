@@ -14,7 +14,7 @@ const create = () => {
   );
   Menu.setApplicationMenu(
     Menu.buildFromTemplate(
-      createMenuTemplate({ win, runningOnMac: process.platform === 'darwin' })
+      createMenuTemplate({ runningOnMac: process.platform === 'darwin' })
     )
   );
   return win;

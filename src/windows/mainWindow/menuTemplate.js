@@ -1,17 +1,29 @@
 import loadResume from './loadResume';
 import showOpenResumeDialog from './showOpenResumeDialog';
 
-const create = ({ win, runningOnMac }) => {
+const create = ({ runningOnMac }) => {
   const mainMenuTemplate = [
     {
       label: 'File',
       submenu: [
         {
           label: 'Open',
-          click: () => {
-            showOpenResumeDialog(win).then(filepath => {
-              if (filepath) loadResume(win, filepath);
+          click: (_item, focusedWindow) => {
+            showOpenResumeDialog(focusedWindow).then(filepath => {
+              if (filepath) loadResume(focusedWindow, filepath);
             });
+          }
+        }
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        {
+          label: 'DevTools',
+          accelerator: runningOnMac ? 'Command+Shift+I' : 'Ctrl+Shift+I',
+          click: (item, focusedWindow) => {
+            focusedWindow.toggleDevTools();
           }
         }
       ]
