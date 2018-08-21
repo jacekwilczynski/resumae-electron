@@ -12,10 +12,11 @@ const create = () => {
       pathname: path.join(__dirname, 'mainWindow', 'page.html')
     })
   );
-  const menu = Menu.buildFromTemplate(
-    createMenuTemplate({ win, runningOnMac: process.platform === 'darwin' })
+  Menu.setApplicationMenu(
+    Menu.buildFromTemplate(
+      createMenuTemplate({ win, runningOnMac: process.platform === 'darwin' })
+    )
   );
-  Menu.setApplicationMenu(menu);
   return win;
 };
 
