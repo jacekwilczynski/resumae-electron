@@ -1,0 +1,12 @@
+.two-column-layout {
+  display: flex;
+}
+
+.two-column-layout__left {
+  width: 20%;
+}
+
+.two-column-layout__right {
+  margin: 0 2em;
+  width: 80%;
+}

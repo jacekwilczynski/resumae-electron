@@ -1,0 +1,26 @@
+.subsection {
+  padding: 1.5em 0.5em;
+}
+
+.subsection:not(:first-of-type) {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.subsection__header {
+  margin-bottom: 1em;
+}
+
+.subsection__post {
+  font-family: var(--font-heading);
+  font-size: 1.25em;
+  font-weight: bold;
+  letter-spacing: var(--heading-letter-spacing);
+  text-transform: uppercase;
+}
+
+.subsection__company {
+  font-family: var(--font-heading);
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: var(--heading-letter-spacing);
+}
