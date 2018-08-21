@@ -6,7 +6,10 @@ interface createMenuTemplateOptions {
   runningOnMac: boolean;
 }
 
-const create = ({ win, runningOnMac }: createMenuTemplateOptions) => {
+const create = ({
+  win,
+  runningOnMac
+}: createMenuTemplateOptions): Electron.MenuItemConstructorOptions[] => {
   const mainMenuTemplate = [
     {
       label: 'File',
