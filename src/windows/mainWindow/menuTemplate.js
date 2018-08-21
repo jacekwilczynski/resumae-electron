@@ -1,3 +1,4 @@
+import { app } from 'electron';
 import loadResume from './loadResume';
 import showOpenResumeDialog from './showOpenResumeDialog';
 
@@ -12,6 +13,12 @@ const create = ({ runningOnMac }) => {
             showOpenResumeDialog(focusedWindow).then(filepath => {
               if (filepath) loadResume(focusedWindow, filepath);
             });
+          }
+        },
+        {
+          label: 'Quit',
+          click: () => {
+            app.quit();
           }
         }
       ]
