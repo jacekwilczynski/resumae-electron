@@ -3,6 +3,7 @@ import { enableLiveReload } from 'electron-compile';
 import installExtension, {
   REACT_DEVELOPER_TOOLS
 } from 'electron-devtools-installer';
+import isDevMode from '../isDevMode';
 import createMainWindow from '../windows/mainWindow';
 
 function setupMainWindow(windows) {
@@ -13,13 +14,13 @@ function setupMainWindow(windows) {
 }
 
 function initializeElectron(windows) {
-  const isDevMode = process.execPath.match(/[\\/]electron/);
+  const devMode = isDevMode();
 
-  if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
+  if (devMode) enableLiveReload({ strategy: 'react-hmr' });
 
   app.on('ready', () => {
     setupMainWindow(windows);
-    if (isDevMode) installExtension(REACT_DEVELOPER_TOOLS);
+    if (devMode) installExtension(REACT_DEVELOPER_TOOLS);
   });
 
   app.on('window-all-closed', () => {
