@@ -24,10 +24,6 @@ const create = ({ runningOnMac, devMode }) => {
           }
         }
       ]
-    },
-    {
-      label: 'View',
-      submenu: []
     }
   ];
 
@@ -36,12 +32,17 @@ const create = ({ runningOnMac, devMode }) => {
   }
 
   if (devMode) {
-    mainMenuTemplate.find(menu => menu.label === 'View').submenu.push({
-      label: 'DevTools',
-      accelerator: `${ctrl}+Shift+I`,
-      click: (item, focusedWindow) => {
-        focusedWindow.toggleDevTools();
-      }
+    mainMenuTemplate.push({
+      label: 'Developer Tools',
+      submenu: [
+        {
+          label: 'Toggle Chrome DevTools',
+          accelerator: `${ctrl}+Shift+I`,
+          click: (item, focusedWindow) => {
+            focusedWindow.toggleDevTools();
+          }
+        }
+      ]
     });
   }
 
