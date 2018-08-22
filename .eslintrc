@@ -3,7 +3,9 @@
   "parser": "babel-eslint",
   "rules": {
     "import/no-extraneous-dependencies": "off",
+    "global-require": "off",
     "no-param-reassign": "off",
+    "no-undef": "off",
     "react/destructuring-assignment": "off",
     "react/require-default-props": "off"
   }
