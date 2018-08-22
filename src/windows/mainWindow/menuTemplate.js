@@ -41,6 +41,9 @@ const create = ({ runningOnMac, devMode }) => {
           click: (item, focusedWindow) => {
             focusedWindow.toggleDevTools();
           }
+        },
+        {
+          role: 'reload'
         }
       ]
     });
