@@ -23,7 +23,7 @@ const getBody = (subsections, text, list) => {
 
 const Section = ({ title, text, list, subsections }) => (
   <section className="section">
-    <div className="section__title">{title}</div>
+    <h2 className="section__title">{title}</h2>
     <div className="section__body">{getBody(subsections, text, list)}</div>
   </section>
 );

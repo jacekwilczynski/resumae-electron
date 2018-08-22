@@ -4,7 +4,7 @@ import Item from './header/Item';
 
 const Header = ({ caption, list }) => (
   <div className="header">
-    <div className="header__caption">{caption}</div>
+    <h1 className="header__caption">{caption}</h1>
     <div className="header__list">
       {list.map(item => (
         <Item key={item} data={item} />
