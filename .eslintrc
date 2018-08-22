@@ -2,11 +2,13 @@
   "extends": ["eslint-config-airbnb", "plugin:prettier/recommended"],
   "parser": "babel-eslint",
   "rules": {
+    "consistent-return": "off",
     "global-require": "off",
     "import/no-extraneous-dependencies": "off",
     "no-param-reassign": "off",
     "no-undef": "off",
     "react/destructuring-assignment": "off",
+    "react/jsx-wrap-multilines": "off",
     "react/require-default-props": "off"
   }
 }
