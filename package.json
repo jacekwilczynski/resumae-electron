@@ -76,6 +76,7 @@
     "eslint-plugin-react": "^7",
     "prettier": "^1.14.2",
     "prop-types": "^15.6.2",
-    "react-hot-loader": "^4.3.4"
+    "react-hot-loader": "^4.3.4",
+    "redux-logger": "^3.0.6"
   }
 }
