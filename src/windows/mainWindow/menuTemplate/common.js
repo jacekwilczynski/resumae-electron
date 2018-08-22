@@ -2,13 +2,13 @@ import { app } from 'electron';
 import loadResume from '../loadResume';
 import showOpenResumeDialog from '../showOpenResumeDialog';
 
-export default ({ ctrl }) => [
+export default () => [
   {
     label: 'File',
     submenu: [
       {
         label: 'Open',
-        accelerator: `${ctrl}+O`,
+        accelerator: `CmdOrCtrl+O`,
         click: (_item, focusedWindow) => {
           showOpenResumeDialog(focusedWindow).then(filepath => {
             if (filepath) loadResume(focusedWindow, filepath);

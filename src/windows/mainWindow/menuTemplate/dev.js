@@ -1,10 +1,10 @@
-export default ({ ctrl }) => [
+export default () => [
   {
     label: 'Developer Tools',
     submenu: [
       {
         label: 'Toggle Chrome DevTools',
-        accelerator: `${ctrl}+Shift+I`,
+        accelerator: `CmdOrCtrl+Shift+I`,
         click: (item, focusedWindow) => {
           focusedWindow.toggleDevTools();
         }
