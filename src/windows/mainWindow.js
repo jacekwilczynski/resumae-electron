@@ -1,6 +1,7 @@
 import { BrowserWindow, Menu } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import isDevMode from '../isDevMode';
 import createMenuTemplate from './mainWindow/menuTemplate';
 
 const create = () => {
@@ -14,7 +15,10 @@ const create = () => {
   );
   Menu.setApplicationMenu(
     Menu.buildFromTemplate(
-      createMenuTemplate({ runningOnMac: process.platform === 'darwin' })
+      createMenuTemplate({
+        runningOnMac: process.platform === 'darwin',
+        devMode: isDevMode()
+      })
     )
   );
   return win;

@@ -2,7 +2,7 @@ import { app } from 'electron';
 import loadResume from './loadResume';
 import showOpenResumeDialog from './showOpenResumeDialog';
 
-const create = ({ runningOnMac }) => {
+const create = ({ runningOnMac, devMode }) => {
   const ctrl = runningOnMac ? 'Command' : 'Ctrl';
   const mainMenuTemplate = [
     {
@@ -27,20 +27,22 @@ const create = ({ runningOnMac }) => {
     },
     {
       label: 'View',
-      submenu: [
-        {
-          label: 'DevTools',
-          accelerator: `${ctrl}+Shift+I`,
-          click: (item, focusedWindow) => {
-            focusedWindow.toggleDevTools();
-          }
-        }
-      ]
+      submenu: []
     }
   ];
 
   if (runningOnMac) {
     mainMenuTemplate.unshift({});
+  }
+
+  if (devMode) {
+    mainMenuTemplate.find(menu => menu.label === 'View').submenu.push({
+      label: 'DevTools',
+      accelerator: `${ctrl}+Shift+I`,
+      click: (item, focusedWindow) => {
+        focusedWindow.toggleDevTools();
+      }
+    });
   }
 
   return mainMenuTemplate;
